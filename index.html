@@ -12,6 +12,21 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="shortcut icon" href="resource/ico.ico">
+		<script>
+			$.ajax({
+    				url: 'https://api.imlazy.ink/mcapi/?host=cn-sy-dx-1.natfrp.cloud&port=30398&type=json',
+    				type: 'get',
+    				dataType: 'json',  
+    				crossDomain: true,
+     				success: function(response, status){
+                    			console.log('请求主服数据：' + status);
+                    			console.log(response);
+                    			$('#scplayer').replaceWith(response.players_online + ' 人');//在线玩家
+                    			$('#scstatus').replaceWith('当前' + response.status);//服务器开启或关闭状态
+                		},
+    			data: {},
+		});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -47,21 +62,7 @@
 							<article id="intro">
 								<h2 class="major">关于</h2>
 								<p>服务器IP：<br/>1.cn-ha-bgp-1.openfrp.top:12345（主服节点，使用1.16.5以上版本）<br/>2.cn-hblt-plc-1.openfrp.top:56666（主服节点，使用1.16.5以上版本）<br/>3.us-los-bgp-8.openfrp.top:60000（主服节点，使用1.16.5以上版本，建议外网使用）<br/>4.cn-ha-bgp-1.openfrp.top:12378（科技服节点）<br/>5.cn-sy-dx-1.natfrp.cloud:30398（旧节点，念旧专用）<br/>6.cn-nn-dx-1.natfrp.cloud:60888（旧节点，念旧专用）<br/>子服列表：1.科技生存（使用客户端）<br/>2.我们的地铁梦（使用客户端，错误，无法使用）<br/>3.原版生存（须使用1.19进入）<br/>4.大厅（须使用1.16.5以上进入）。</p>
-								<script>
-								$.ajax({
-    									url: 'https://api.imlazy.ink/mcapi/?host=cn-sy-dx-1.natfrp.cloud&port=30398&type=json',
-    									type: 'get',
-    									dataType: 'json',  
-    									crossDomain: true,
-     									success: function(response, status){
-                    									console.log('请求主服数据：' + status);
-                    									console.log(response);
-                    									$('#scplayer').replaceWith(response.players_online + ' 人');//在线玩家
-                    									$('#scstatus').replaceWith('当前' + response.status);//服务器开启或关闭状态
-                								},
-    									data: {},
-								});
-								</script>
+								<div>当前服务器<span id="scstatus">检测中</span> <span id="scplayer"></span></div>
 							</article>
 
 						<!-- Work -->

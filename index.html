@@ -329,6 +329,19 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<p style="display:none">
+			<script language="javascript">
+			<!--// ClientTime by.RebirthIsHope
+			jQuery(document).ready(function(){
+			var ClientTime = (new Date().getTime()-Client);
+			if(ClientTime>=1000){var ClientTime = ClientTime / 1000;var timeunit = "s";}else{var timeunit = "ms";}
+			document.getElementById("ServerTime").innerHTML = "响应时间：61.734ms";
+			document.getElementById("ClientTime").innerHTML = "加载时间: "+ ClientTime + timeunit; 
 
+
+			});
+			//-->
+			</script>
+		</p>
 	</body>
 </html>
